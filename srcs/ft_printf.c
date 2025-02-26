@@ -6,9 +6,13 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 03:24:08 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/02/26 05:26:45 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/02/26 07:13:27 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	ft_printf(const char *format, ...)
+{
+	
+}
