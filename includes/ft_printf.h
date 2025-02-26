@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 03:30:01 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/02/26 03:30:03 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/02/26 05:22:40 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
+
+int	ft_printf(const char *format, ...);
 
 #endif
