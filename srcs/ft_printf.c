@@ -14,5 +14,20 @@
 
 int	ft_printf(const char *format, ...)
 {
-	
+	va_list	args;
+	int		i;
+	int		written;
+
+	va_start(args, format);
+	written = 0;
+	i = 0;
+	while (format[i])
+	{
+		while (format[i] != '%')
+		{
+			
+		}
+		i++;
+	}
+	va_end(args);
 }
