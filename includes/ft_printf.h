@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 03:30:01 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/03/01 00:54:17 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/03/06 01:15:58 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,19 @@ typedef enum e_bool
 	TRUE
 }				t_bool;
 
-int		ft_printf(const char *format, ...);
-t_bool	valid_format(char *format);
-int		display_until_arg(char *format, int *i);
-int		display_arg(char *format, int *i);
-int		clean_return(va_list args, int total);
+typedef struct s_arginfo
+{
+	t_bool				left_adjusted;
+	t_bool				zero_padded;
+	t_bool				alt_form;
+	t_bool				sign_space;
+	t_bool				show_sign;
+	int					precision;
+	int					width;
+	char				type;
+	struct s_arginfo	*next;
+}				t_arginfo;
+
+t_arginfo	*new_argument(char *format);
 
 #endif
