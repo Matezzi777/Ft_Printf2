@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 INCLUDES = -I./includes
-LIBFT = -l:libft -L:libft
+LIBFT = -L:libft -lft
 AR = ar rcs
 RM = rm -f
 
@@ -25,7 +25,7 @@ bonus: $(NAME)
 	$(CC) $(CFLAGS) $(INCLUDES) $(LIBFT) -c $< -o $@
 
 libft:
-	cd libft && make > /dev/null
+	cd libft && make bonus > /dev/null
 
 fclean: clean
 	$(RM) $(NAME)
@@ -35,5 +35,8 @@ clean:
 	cd libft && make fclean > /dev/null
 
 re: fclean all
+
+test: re
+	cc -Wall -Wextra -Werror -Iincludes test.c -L. -l:libftprintf.a -L./libft -l:libft.a -o test
 
 .PHONY: all bonus libft fclean clean re

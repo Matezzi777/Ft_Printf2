@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 03:30:01 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/03/11 04:24:22 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/03/11 04:43:03 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <stdarg.h>
+# include <stdio.h>													//DELETE
 
 typedef enum e_bool
 {
@@ -35,9 +36,12 @@ typedef struct s_arginfo
 	struct s_arginfo	*next;
 }				t_arginfo;
 
+//ft_printf.c
+int	ft_printf(const char *format, ...);
 //parsing.c
 t_list	*parse_arguments(const char *format, va_list arglist);
+int		test_parsing(t_list *params, va_list arglist);				//DELETE
 //utils.c
-int		clean_exit(int value, t_arginfo *params, va_list arglist);
+int		clean_exit(int value, t_list *params, va_list arglist);
 
 #endif
