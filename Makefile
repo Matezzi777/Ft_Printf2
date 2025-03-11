@@ -9,7 +9,8 @@ RM = rm -f
 
 ###################### FILES ######################
 SRCS = ft_printf.c \
-		arguments.c
+		utils.c \
+		parsing.c
 OBJS = $(addprefix srcs/,$(SRCS:.c=.o))
 
 ###################### RULES ######################
@@ -17,6 +18,8 @@ all: $(NAME)
 
 $(NAME): libft $(OBJS)
 	$(AR) $(NAME) $(OBJS)
+
+bonus: $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) $(LIBFT) -c $< -o $@
@@ -33,4 +36,4 @@ clean:
 
 re: fclean all
 
-.PHONY: all libft fclean clean re
+.PHONY: all bonus libft fclean clean re

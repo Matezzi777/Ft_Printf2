@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 03:37:11 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/03/11 04:19:01 by maxmart2         ###   ########.fr       */
+/*   Created: 2025/03/11 03:58:35 by maxmart2          #+#    #+#             */
+/*   Updated: 2025/03/11 04:21:48 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	print_result(const char *format, t_list *params);
-
-int	ft_printf(const char *format, ...)
+int	clean_exit(int value, t_list *params, va_list arglist)
 {
-	int			i;
-	va_list		arglist;
-	t_list		*params;
-
-	va_start(arglist, format);
-	params = parse_arguments(format, arglist);
-	if (!params)
-		return (clean_exit(0, params, arglist));
-	return (clean_exit(print_result(format, params), params, arglist));
-}
-
-static int	print_result(const char *format, t_list *params)
-{
-	
+	if (params)
+		ft_lstclear(&params, free);
+	va_end(arglist);
+	return (value);
 }

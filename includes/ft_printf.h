@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 03:30:01 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/03/06 01:15:58 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/03/11 04:24:22 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_arginfo
 	struct s_arginfo	*next;
 }				t_arginfo;
 
-t_arginfo	*new_argument(char *format);
+//parsing.c
+t_list	*parse_arguments(const char *format, va_list arglist);
+//utils.c
+int		clean_exit(int value, t_arginfo *params, va_list arglist);
 
 #endif
