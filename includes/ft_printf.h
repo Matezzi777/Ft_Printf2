@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 03:30:01 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/03/11 04:43:03 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/03/11 17:00:05 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ typedef enum e_bool
 	TRUE
 }				t_bool;
 
+typedef enum e_types
+{
+	CHAR,
+	INT,
+	UNSIGNED,
+	STRING,
+	HEXA,
+	POINTER
+}				t_types;
+
 typedef struct s_arginfo
 {
 	t_bool				left_adjusted;
@@ -32,8 +42,7 @@ typedef struct s_arginfo
 	t_bool				show_sign;
 	int					precision;
 	int					width;
-	char				type;
-	struct s_arginfo	*next;
+	t_types				type;
 }				t_arginfo;
 
 //ft_printf.c
