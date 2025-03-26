@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   example.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 03:37:11 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/03/26 01:00:30 by maxmart2         ###   ########.fr       */
+/*   Created: 2025/03/26 01:20:43 by maxmart2          #+#    #+#             */
+/*   Updated: 2025/03/26 01:59:10 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
 
-// static int	print_result(const char *format, t_list *params);
-
-int	ft_printf(const char *format, ...)
+int	main(void)
 {
-	int	written;
-	int i;
+	// int	i = 42;
 
-	i = 0;
-	while (format[i])
-	{
-		while (format[i] && format[i] != '%')
-			written += ft_print_character(format[i++]);
-		while (format[i] && ft_is_char_in_set(format[++i], ""))
-	}
+	// printf("\"%+20c\"\n", 'X');
+	// printf("\"%+20s\"\n", "");
+	// printf("\"%+20p\"\n", &i);
+	printf("\"%+5d\"\n", 42);
+	printf("\"%+5i\"\n", -42);
+	// printf("\"%+20u\"\n", 42);
+	// printf("\"%+20x\"\n", 42);
+	// printf("\"%+20X\"\n", 42);
 }
-
-// static int	print_result(const char *format, t_list *params)
-// {
-	
-// }

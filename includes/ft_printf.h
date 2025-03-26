@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 03:30:01 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/03/26 00:45:41 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/03/26 00:57:01 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 // }				t_arginfo;
 
 //ft_printf.c
-int	ft_printf(const char *str);
+int	ft_printf(const char *format, ...);
+int	ft_print_character(char c);
 
 #endif
