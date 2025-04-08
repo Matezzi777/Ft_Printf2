@@ -8,9 +8,7 @@ AR = ar rcs
 RM = rm -f
 
 ###################### FILES ######################
-SRCS = ft_printf.c \
-		utils.c \
-		parsing.c
+SRCS = ft_printf.c
 OBJS = $(addprefix srcs/,$(SRCS:.c=.o))
 
 ###################### RULES ######################
