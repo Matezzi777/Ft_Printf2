@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_character.c                               :+:      :+:    :+:   */
+/*   ft_print_integer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 17:57:48 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/04/10 18:01:21 by maxmart2         ###   ########.fr       */
+/*   Created: 2025/04/10 17:57:39 by maxmart2          #+#    #+#             */
+/*   Updated: 2025/04/10 19:23:52 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_character(char c)
+int	ft_print_integer(int n)
 {
-	return (write(1, &c, 1));
+	int written;
+
+	ft_putnbr_fd(n, 1);
+	if (n == -2147483648)
+		return (11);
+	written = 1;
+	if (n < 0)
+	{
+		written++;
+		n *= -1;
+	}
+	while (n / 10)
+	{
+		n /= 10;
+		written++;
+	}
+	return (written);
 }

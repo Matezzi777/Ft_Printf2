@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_character.c                               :+:      :+:    :+:   */
+/*   ft_print_string.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 17:57:48 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/04/10 18:01:21 by maxmart2         ###   ########.fr       */
+/*   Created: 2025/04/10 17:57:46 by maxmart2          #+#    #+#             */
+/*   Updated: 2025/04/10 18:02:42 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_character(char c)
+int	ft_print_string(char *str)
 {
-	return (write(1, &c, 1));
+	int	i;
+
+	i = -1;
+	while (str[++i])
+		if (write(1, &str[i], 1) == -1)
+			return (-1);
+	return (i);
 }

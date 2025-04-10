@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_character.c                               :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 17:57:48 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/04/10 18:01:21 by maxmart2         ###   ########.fr       */
+/*   Created: 2025/04/10 17:57:37 by maxmart2          #+#    #+#             */
+/*   Updated: 2025/04/10 19:41:54 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_character(char c)
+static void	ft_put_unsigned(unsigned int n)
 {
-	return (write(1, &c, 1));
+	char	c;
+
+	if (0 <= n && n <= 9)
+	{
+		c = n + '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		ft_putuns_fd(n / 10);
+		ft_putuns_fd(n % 10);
+	}
+}
+
+int	ft_print_unsigned(unsigned int n)
+{
+	int	written;
+
+	ft_putuns_fd(n, 1);
+	written = 1;
+	while (n / 10)
+		written++;
+	return (written);
 }
