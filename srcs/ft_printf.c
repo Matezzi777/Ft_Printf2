@@ -5,37 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 03:37:11 by maxmart2          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2025/03/25 23:15:36 by maxmart2         ###   ########.fr       */
-=======
-/*   Updated: 2025/03/26 01:00:30 by maxmart2         ###   ########.fr       */
->>>>>>> 5e3376a1874a6d3035a6c48f977823e64f5a419c
+/*   Created: 2025/04/10 17:36:59 by maxmart2          #+#    #+#             */
+/*   Updated: 2025/04/10 17:56:35 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-<<<<<<< HEAD
-=======
-// static int	print_result(const char *format, t_list *params);
+static int ft_manage_arg(char type, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
-	int	written;
-	int i;
+	int		written;
+	int		i;
+	int		temp;
+	va_list	args;
 
+	va_start(args, format);
+	written = 0;
 	i = 0;
 	while (format[i])
 	{
-		while (format[i] && format[i] != '%')
-			written += ft_print_character(format[i++]);
-		while (format[i] && ft_is_char_in_set(format[++i], ""))
+		if (format[i] == '%')
+		{
+			temp = ft_manage_arg(format[++i], args);
+			if (temp == -1)
+				return (-1);
+			written += temp;
+		}
+		else
+			written += ft_print_character(format[i]);
+		i++;
 	}
+	va_end(args);
+	return (written);
 }
 
-// static int	print_result(const char *format, t_list *params)
-// {
-	
-// }
->>>>>>> 5e3376a1874a6d3035a6c48f977823e64f5a419c
+static int ft_manage_arg(char type, va_list args)
+{
+	if (type == 'c')
+		return (ft_print_character(va_arg(args, char)));
+	else if (type == 's')
+		return (ft_print_string(va_arg(args, char *)));
+	else if (type == 'p')
+		return (ft_print_address(va_arg(args, void *)));
+	else if (type == 'd' || type =='i')
+		return (ft_print_integer(va_arg(args, int)));
+	else if (type == 'u')
+		return (ft_print_unsigned(va_arg(args, unsigned int)));
+	else if (type == 'x' || type == 'X')
+		return (ft_print_hexa(va_arg(args, int)));
+	else if (type == '%')
+		return (ft_print_character('%'));
+	else
+		return (-1);
+}
