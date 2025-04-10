@@ -8,7 +8,13 @@ AR = ar rcs
 RM = rm -f
 
 ###################### FILES ######################
-SRCS = ft_printf.c
+SRCS = ft_printf.c \
+		ft_print_character.c \
+		ft_print_string.c \
+		ft_print_address.c \
+		ft_print_integer.c \
+		ft_print_unsigned.c \
+		ft_print_hexa.c
 OBJS = $(addprefix srcs/,$(SRCS:.c=.o))
 
 ###################### RULES ######################
