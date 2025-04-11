@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:57:37 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/04/11 15:57:43 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:34:24 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int	ft_print_unsigned(unsigned int n)
 	ft_put_unsigned(n);
 	written = 1;
 	while (n / 10)
+	{
 		written++;
+		n /= 10;
+	}
 	return (written);
 }

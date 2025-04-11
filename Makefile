@@ -41,6 +41,6 @@ clean:
 re: fclean all
 
 test: re
-	cc -Wall -Wextra -Werror -Iincludes test.c -L. -l:libftprintf.a -L./libft -l:libft.a -o test
+	cc -Iincludes test.c -L. -l:libftprintf.a -L./libft -l:libft.a -o test
 
 .PHONY: all bonus libft fclean clean re
