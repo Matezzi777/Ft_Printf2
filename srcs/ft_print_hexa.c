@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:57:35 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/04/11 15:08:03 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:34:43 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int	ft_print_hexa(int n, t_bool maj)
 	if (written == -2147483648)
 		return (9);
 	while (n / 16)
+	{
 		written++;
+		n /= 16;
+	}
 	return (written);
 }
