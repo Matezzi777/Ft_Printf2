@@ -6,7 +6,7 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:57:39 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/04/10 19:23:52 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:28:47 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_integer(int n)
 {
-	int written;
+	int	written;
 
 	ft_putnbr_fd(n, 1);
 	if (n == -2147483648)

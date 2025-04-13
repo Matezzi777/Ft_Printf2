@@ -6,13 +6,13 @@
 /*   By: maxmart2 <maxmart2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:36:59 by maxmart2          #+#    #+#             */
-/*   Updated: 2025/04/11 15:54:51 by maxmart2         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:27:45 by maxmart2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int ft_manage_arg(char type, va_list args);
+static int	ft_manage_arg(char type, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -41,7 +41,7 @@ int	ft_printf(const char *format, ...)
 	return (written);
 }
 
-static int ft_manage_arg(char type, va_list args)
+static int	ft_manage_arg(char type, va_list args)
 {
 	if (type == 'c')
 		return (ft_print_character(va_arg(args, int)));
@@ -49,7 +49,7 @@ static int ft_manage_arg(char type, va_list args)
 		return (ft_print_string(va_arg(args, char *)));
 	else if (type == 'p')
 		return (ft_print_address(va_arg(args, void *)));
-	else if (type == 'd' || type =='i')
+	else if (type == 'd' || type == 'i')
 		return (ft_print_integer(va_arg(args, int)));
 	else if (type == 'u')
 		return (ft_print_unsigned(va_arg(args, unsigned int)));
