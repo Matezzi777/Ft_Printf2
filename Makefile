@@ -23,8 +23,6 @@ all: $(NAME)
 $(NAME): libft $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-bonus: $(NAME)
-
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) $(LIBFT) -c $< -o $@
 
@@ -39,8 +37,5 @@ clean:
 	cd libft && make fclean > /dev/null
 
 re: fclean all
-
-test: re
-	cc -Iincludes test.c -L. -l:libftprintf.a -L./libft -l:libft.a -o test
 
 .PHONY: all bonus libft fclean clean re
