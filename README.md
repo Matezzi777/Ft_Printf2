@@ -1,4 +1,7 @@
 # Ft_Printf2
+![Static Badge](https://img.shields.io/badge/Grade-Waiting-yellow) ![Static Badge](https://img.shields.io/badge/Bonus-No-red?style=flat)
+ ![Static Badge](https://img.shields.io/badge/Language-C-blue?style=flat)
+
 Ft_Printf is the second/third project of the 42 Common Core.
 The aim of this project is to recode the printf function from stdio library.
 ### The printf function :
