@@ -1,41 +1,38 @@
-#################### VARIABLES ####################
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+##### VARIABLES #####
 NAME = libftprintf.a
-INCLUDES = -I./includes
-LIBFT = -L:libft -lft
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+SRC_DIR = srcs
+
 AR = ar rcs
-RM = rm -f
+RM = rm -rdf
 
-###################### FILES ######################
-SRCS = ft_printf.c \
+RAW_SRCS = ft_print_address.c \
 		ft_print_character.c \
-		ft_print_string.c \
-		ft_print_address.c \
+		ft_print_hexa.c \
 		ft_print_integer.c \
+		ft_print_string.c \
 		ft_print_unsigned.c \
-		ft_print_hexa.c
-OBJS = $(addprefix srcs/,$(SRCS:.c=.o))
+		ft_printf.c
 
-###################### RULES ######################
+SRCS = $(addprefix $(SRC_DIR)/, $(RAW_SRCS))
+OBJS = $(SRCS:.c=.o)
+
 all: $(NAME)
 
-$(NAME): libft $(OBJS)
+$(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) $(LIBFT) -c $< -o $@
-
-libft:
-	cd libft && make bonus > /dev/null
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 fclean: clean
 	$(RM) $(NAME)
 
 clean:
 	$(RM) $(OBJS)
-	cd libft && make fclean > /dev/null
 
 re: fclean all
 
-.PHONY: all bonus libft fclean clean re
+.PHONY: all fclean clean re
